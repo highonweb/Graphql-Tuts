@@ -2,10 +2,11 @@ module.exports = {
   Query: {
     users: async (parent, args, { models }) => {
       const users = await models.User.find({});
-      console.log(users);
-      return users;
+      console.log(users.slice(0,6));
+      return users.slice(0,6);
     },
-    user: async (parent, {id,name,password}, {models})=>{
+    user: async (parent, args, {models})=>{
+      console.log();
       const user = await models.User.find({_id: args.id});
       console.log(user);
       return user;
@@ -33,6 +34,15 @@ module.exports = {
         throw new Error('Cannot Save Post!!!');
       }
 
+      return true;
+    },
+    updateUser: async (parent, args, { models }) => {
+      try {
+        const Post = await models.User.findOneAndUpdate({ userid: args.userid },args);
+      } catch (error) {
+        console.log(error);
+      }
+      const Post = await models.User.findOneAndUpdate({ userid: args.userid },args);
       return true;
     },
   },

@@ -5,6 +5,7 @@ type Query {
 
 type Mutation {
   createUser(name: String!, userid: String!, password: String!): Boolean!
+  updateUser(name: String, userid: String!, password: String): Boolean!
 }
 
 # Schema Types
