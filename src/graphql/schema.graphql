@@ -1,7 +1,17 @@
 type Query {
-// Queries go here
+  users: [User!]!
+  user(id: String, userid: String, name: String): [User!]!
 }
 
 type Mutation {
-// mutation goes here
+  createUser(name: String!, userid: String!, password: String!): Boolean!
+}
+
+# Schema Types
+type User {
+  id: String!
+  name: String!
+  userid: String!
+  password: String!
+  createdOn: String!
 }
