@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const User = require( './user.js');
 
 // SET UP Mongoose Promises.
 mongoose.Promise = global.Promise;
